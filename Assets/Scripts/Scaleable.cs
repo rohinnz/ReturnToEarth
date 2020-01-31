@@ -7,7 +7,7 @@ public class Scaleable : MonoBehaviour
     public float targetScale = 0.9f;
     public float fromScale = 0.9f;
     public float scalingProgress = 0f;
-
+    public float increment = 1f;
     Vector3 fromVector;
     Vector3 targetVector;
 
@@ -17,8 +17,9 @@ public class Scaleable : MonoBehaviour
         SetTargetScale(transform.localScale.x);
     }
 
-    public void IncreaseScale(float increment)
+    public void IncreaseScale(float i)
     {
+        //SetTargetScale(fromScale + i);
         SetTargetScale(fromScale + increment);
     }
 
