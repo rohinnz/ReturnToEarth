@@ -29,7 +29,10 @@ public class UIController : MonoBehaviour
 
     public void UpdatePopulationDetails()
     {
-
+        foreach(UIPopulationDetail detail in populationPanel.uiPopulations)
+        {
+            detail.Refresh();
+        }
     }
 
     public void UpdateSpawnerText(SpawnableObject o)

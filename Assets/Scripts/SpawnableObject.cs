@@ -19,4 +19,5 @@ public class SpawnableObject : MonoBehaviour
     public float EnergyConsumption = 1f;
     public Color BarColour;
     public float Population = 0f;
+    public float MaxPopulation = 1f;
 }

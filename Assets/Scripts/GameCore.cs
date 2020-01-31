@@ -16,14 +16,17 @@ public class GameCore : MonoBehaviour
     public List<SpawnableObject> SpawnableList = new List<SpawnableObject>();
     public Transform SpawnableObjectsContainer;
     EcosystemController ecosystem;
+    UIController uiController;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         ecosystem = FindObjectOfType<EcosystemController>();
+        uiController = FindObjectOfType<UIController>();
         Energy = MaxEnergy;
         UpdateEnergy();
         SpawnableList = GetSpawnables();
+        uiController.populationPanel.CreatePopulationPanels(SpawnableList);
     }
 
 
