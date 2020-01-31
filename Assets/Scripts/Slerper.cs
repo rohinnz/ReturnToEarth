@@ -17,6 +17,14 @@ public class Slerper : MonoBehaviour
         progress = 0f;
     }
 
+    public void SetNonSlerpValue(float amount)
+    {
+        ImageToFill.fillAmount = amount;
+        fromVal = amount;
+        targetVal = amount;
+        progress = amount;
+    }
+
     public void SetTargetScale(float target)
     {
         fromVal = ImageToFill.fillAmount;

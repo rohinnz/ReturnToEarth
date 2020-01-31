@@ -9,13 +9,15 @@ public class UIController : MonoBehaviour
     public Transform ButtonPanel;
     public Transform SpawnableObjectsContainer;
     SpawnerRay spawnerRay;
-
+    GameCore gameCore;
     public Text selectedSpawnerText;
+    public UIPopulationPanel populationPanel;
     
     private void Start()
     {
+        gameCore = FindObjectOfType<GameCore>();
         spawnerRay = FindObjectOfType<SpawnerRay>();
-        List<SpawnableObject> spawnables = GetSpawnables();
+        List<SpawnableObject> spawnables = gameCore.SpawnableList;
         foreach(SpawnableObject o in spawnables)
         {
             GameObject newGO = Instantiate(SpawnButtonPrefab, ButtonPanel);
@@ -25,20 +27,16 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void UpdatePopulationDetails()
+    {
+
+    }
+
     public void UpdateSpawnerText(SpawnableObject o)
     {
         selectedSpawnerText.text = "Spawner: "+o.name;
     }
-    List<SpawnableObject> GetSpawnables()
-    {
-        List<SpawnableObject> spawnables = new List<SpawnableObject>();
-        Debug.Log(SpawnableObjectsContainer.childCount);
-        for (int i = 0; i < SpawnableObjectsContainer.childCount; i++)
-        {
-            spawnables.Add(SpawnableObjectsContainer.GetChild(i).GetComponent<SpawnableObject>());
-        }
-        return spawnables;
-    }
+    
 
     private void OnDestroy()
     {

@@ -9,6 +9,7 @@ public class SpawnerRay : MonoBehaviour
     public SpawnableObject selectedSpawn;
     public GameCore gameCore;
     UIController uiController;
+    
 
     public void SelectSpawnable(SpawnableObject spawnable)
     {
@@ -18,9 +19,17 @@ public class SpawnerRay : MonoBehaviour
 
     public void UseSelectedSpawnable(RaycastHit hit)
     {
-        Vector3 spawnPoint = hit.point;
-        Quaternion startRotation = Quaternion.LookRotation(hit.normal);
-        GameObject newGo = Instantiate(selectedSpawn.Prefab, spawnPoint, startRotation, hit.transform);
+        if (!selectedSpawn.isWater)
+        {
+            Vector3 spawnPoint = hit.point;
+            Quaternion startRotation = Quaternion.LookRotation(hit.normal);
+            GameObject newGo = Instantiate(selectedSpawn.Prefab, spawnPoint, startRotation, hit.transform);
+        }
+        else
+        {
+            gameCore.IncreaseWater(selectedSpawn.SpawnAmount);
+        }
+        
         gameCore.UseEnergy(selectedSpawn.EnergyConsumption);
     }
 
