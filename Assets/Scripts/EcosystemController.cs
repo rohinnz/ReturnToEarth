@@ -16,17 +16,24 @@ public class EcosystemController : MonoBehaviour
     public void Populate(SpawnableObject o, float amount)
     {
         o.Population += amount;
-        uiController.UpdatePopulationDetails();
     }
 
     public void PopulationTick()
     {
-        foreach(SpawnableObject o in GameCore.SpawnableList)
+        foreach (SpawnableObject o in GameCore.SpawnableList)
+        {
+            o.TotalConsumptionOfMe = 0f;
+        }
+
+        foreach (SpawnableObject o in GameCore.SpawnableList)
         {
             foreach(Consumption c in o.Consumption)
             {
-                Debug.Log(o.name + " consumed " + c.Amount.ToString("0") + " of " + c.SpawnableObject.name);
+                Debug.Log(o.name + " consumed " + (c.Amount*o.Population).ToString("0") + " of " + c.SpawnableObject.name);
+                c.SpawnableObject.TotalConsumptionOfMe += c.Amount * o.Population;
             }
         }
+
+        uiController.UpdatePopulationDetails();
     }
 }

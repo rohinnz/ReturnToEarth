@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155a9bcbe947f074ea9674e721739fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameSpeed: 1
   Energy: 0
   MaxEnergy: 200
   EnergyText: {fileID: 1146254866}
@@ -1075,12 +1076,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnAmount: 1
   isWater: 0
-  Consumption: []
+  Consumption:
+  - SpawnableObject: {fileID: 1336829719}
+    Amount: 1
   Prefab: {fileID: 3467262687917412482, guid: f6198f05f66992c4bbf6f439a36c9a04, type: 3}
   EnergyConsumption: 1
   BarColour: {r: 0.9528302, g: 0.30003524, b: 0, a: 1}
   Population: 0
   MaxPopulation: 100
+  TotalConsumptionOfMe: 0
 --- !u!1 &1336829717
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,12 +1130,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnAmount: 1
   isWater: 0
-  Consumption: []
+  Consumption:
+  - SpawnableObject: {fileID: 1535073042}
+    Amount: 1
   Prefab: {fileID: 3467262687917412482, guid: a9747bbce33dc1742923abf88566d823, type: 3}
   EnergyConsumption: 1
   BarColour: {r: 0.829436, g: 1, b: 0.43867922, a: 1}
   Population: 0
   MaxPopulation: 100
+  TotalConsumptionOfMe: 0
 --- !u!1001 &1422191258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1559,12 +1566,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnAmount: 1
   isWater: 0
-  Consumption: []
+  Consumption:
+  - SpawnableObject: {fileID: 1627210613}
+    Amount: 1
   Prefab: {fileID: 8810450037229647757, guid: ab9077994df05e34cbfaba158108dfc5, type: 3}
   EnergyConsumption: 1
   BarColour: {r: 0, g: 0.7882353, b: 0, a: 1}
   Population: 0
   MaxPopulation: 500
+  TotalConsumptionOfMe: 0
 --- !u!1 &1627210611
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,6 +1626,7 @@ MonoBehaviour:
   BarColour: {r: 0, g: 0.63664365, b: 1, a: 1}
   Population: 0
   MaxPopulation: 1
+  TotalConsumptionOfMe: 0
 --- !u!1 &1822435326 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7977819192417808284, guid: eb04e474a5d95b34689baf46cf3bcdf1,

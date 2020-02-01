@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameCore : MonoBehaviour
 {
+    public float GameSpeed = 1f;
     public float Energy;
     public float MaxEnergy = 200f;
     public Text EnergyText;
@@ -27,7 +28,7 @@ public class GameCore : MonoBehaviour
         UpdateEnergy();
         SpawnableList = GetSpawnables();
         uiController.populationPanel.CreatePopulationPanels(SpawnableList);
-        InvokeRepeating("GameTick", 1f, 1f);
+        InvokeRepeating("GameTick",1f,1f);
     }
 
     void GameTick()

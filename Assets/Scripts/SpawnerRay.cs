@@ -25,13 +25,16 @@ public class SpawnerRay : MonoBehaviour
             Vector3 spawnPoint = hit.point;
             Quaternion startRotation = Quaternion.LookRotation(hit.normal);
             GameObject newGo = Instantiate(selectedSpawn.Prefab, spawnPoint, startRotation, hit.transform);
+            ecosystem.Populate(selectedSpawn, selectedSpawn.SpawnAmount);
         }
         else
         {
             gameCore.IncreaseWater(selectedSpawn.SpawnAmount);
+            ecosystem.Populate(selectedSpawn, selectedSpawn.SpawnAmount*100);
         }
         
         gameCore.UseEnergy(selectedSpawn.EnergyConsumption);
+        uiController.UpdatePopulationDetails();
     }
 
     void Start()

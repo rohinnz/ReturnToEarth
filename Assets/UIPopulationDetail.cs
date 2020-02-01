@@ -7,6 +7,7 @@ public class UIPopulationDetail : MonoBehaviour
     public TMP_Text PopulationText;
     public Slerper PopulationBar;
     public SpawnableObject spawnableObject;
+    public TMP_Text ConsumptionText;
 
     private void Start()
     {
@@ -28,5 +29,9 @@ public class UIPopulationDetail : MonoBehaviour
         {
             PopulationBar.SetNonSlerpValue(spawnableObject.Population / spawnableObject.MaxPopulation);
         }
+
+        ConsumptionText.text = "Consumption: ";
+        ConsumptionText.text += spawnableObject.TotalConsumptionOfMe > 0f ? "<color=red>" : "";
+        ConsumptionText.text += spawnableObject.TotalConsumptionOfMe.ToString("0");
     }
 }
