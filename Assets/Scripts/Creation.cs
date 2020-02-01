@@ -8,6 +8,7 @@ public class Creation : MonoBehaviour
 
     private void Start()
     {
-        transform.GetChild(0).Rotate(transform.up, Random.Range(0f, 360f));
+        //Removed for now because I can't get the models to all rotate consistently
+        //transform.GetChild(0).Rotate(transform.up, Random.Range(0f, 360f));
     }
 }
