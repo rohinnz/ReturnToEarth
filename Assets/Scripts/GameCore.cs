@@ -11,7 +11,7 @@ public class GameCore : MonoBehaviour
     public Text EnergyText;
     public Slerper EnergySlerper;
 
-    public static float WaterLevel = 20f;
+    public static float WaterLevel = 50f;
 
     public SphereCollider waterCollider;
     public Scaleable WaterScaler;
