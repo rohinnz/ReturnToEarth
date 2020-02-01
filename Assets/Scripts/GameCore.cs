@@ -21,7 +21,7 @@ public class GameCore : MonoBehaviour
     public Transform SpawnableObjectsContainer;
     EcosystemController ecosystem;
     UIController uiController;
-
+    SpawnerRay spawnerRay;
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,14 +32,14 @@ public class GameCore : MonoBehaviour
         SpawnableList = GetSpawnables();
         uiController.populationPanel.CreatePopulationPanels(SpawnableList);
         InvokeRepeating("GameTick",1f,1f);
-        
+        spawnerRay = FindObjectOfType<SpawnerRay>();
     }
 
     void GameTick()
     {
         RaycastHit[] hits;
         Collider[] colliders;
-        colliders = Physics.OverlapSphere(waterCollider.transform.position, waterCollider.transform.localScale.x);
+        colliders = Physics.OverlapSphere(waterCollider.transform.position, waterCollider.transform.localScale.x,spawnerRay.planetLayer);
         foreach(Collider h in colliders)
         {
             //Debug.Log(h.transform.name);
