@@ -15,7 +15,7 @@ public class SpawnableObject : MonoBehaviour
     public float SpawnAmount = 1f;
     public bool isWater = false;
     public List<Consumption> Consumption = new List<Consumption>();
-    public GameObject Prefab;
+    public GameObject[] Prefabs;
     public float EnergyConsumption = 1f;
     public Color BarColour;
     public float Population = 0f;
