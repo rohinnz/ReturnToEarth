@@ -30,6 +30,7 @@ public class SpawnerRay : MonoBehaviour
             Creation newCreation = newGo.AddComponent<Creation>();
             newCreation.spawnableObject = selectedSpawn;
             GameCore.CreationLookup[selectedSpawn.name].Add(newCreation);
+            Debug.Log(GameCore.CreationLookup.Count);
             ecosystem.Populate(selectedSpawn, selectedSpawn.SpawnAmount);
         }
         // Water is a special case, should change how it is used if there's time.
