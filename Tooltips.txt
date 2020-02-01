@@ -1,0 +1,29 @@
+Water
+The planet needs water to support life but increasing the water could also drown your newly settled organisms.
+
+Vegetation
+Plants are needed to produce enough oxygen to support life.
+They are also consumed by some organisms.
+Consumes: 1 Water
+
+Nailape (Herbivore)
+A distant descendent of Earth apes which as developed a nail-like protruberance from its skull.
+Consumes: 1 Water, 1 Vegetation
+
+Hammer Horse (Carnivore)
+Neither a descendent of a hammer, nor horse but with elements of both.
+This creature preys upon nailapes.
+Consumes: 1 Herbivore
+
+Peopleo (Humanoid)
+The descendents of Earth humans evolved to be completely hairless with bulging eyes.
+However, they have retained their forebears' voracious apetites and could upset a carefully balanced ecosystem. 
+Consumes: 4 Water, 4 Vegetation, 1 Herbivore, 2 Carnivore
+
+
+
+Intro text
+Eons ago humanity fled a dying and polluted earth.
+Millions of years later you, a descendent of those Earth survivors, return to what was once Earth to repair and restore the planet to support life again.
+Your ship is equipped with equipment the tools to bring life back to Earth, but you must maintain a balance between the species so they can flourish into the future.
+[Support 50 humans on Earth]
