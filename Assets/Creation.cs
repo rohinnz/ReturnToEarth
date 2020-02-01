@@ -8,6 +8,6 @@ public class Creation : MonoBehaviour
 
     private void Start()
     {
-        transform.GetChild(0).Rotate(Vector3.up, Random.Range(0f, 360f));
+        transform.GetChild(0).Rotate(transform.up, Random.Range(0f, 360f));
     }
 }

@@ -28,7 +28,12 @@ public class EcosystemController : MonoBehaviour
 
     public void Cull(SpawnableObject o, int amount)
     {
+        if (o.isWater)
+        {
+            return;
+        }
         Debug.Log(amount.ToString("0 ") + o.name + " culled");
+        Debug.Log(GameCore.CreationLookup[o.name].Count);
         if (GameCore.CreationLookup[o.name].Count > amount)
         {
             for (int i = 0; i < amount; i++)

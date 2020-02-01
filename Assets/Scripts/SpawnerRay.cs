@@ -63,7 +63,7 @@ public class SpawnerRay : MonoBehaviour
         {
             for (int i = 0; i < hits.Length; i++)
             {
-                Debug.Log(hits[i].transform.name);
+                //Debug.Log(hits[i].transform.name);
                 RaycastHit h = hits[i];
                 if (h.transform.tag == "Planet")
                 {

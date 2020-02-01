@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 640339503}
   - component: {fileID: 640339506}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: PopulationPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1222,7 +1222,8 @@ MonoBehaviour:
   Consumption:
   - SpawnableObject: {fileID: 1336829719}
     Amount: 1
-  Prefabs: []
+  Prefabs:
+  - {fileID: 3040406310646630065, guid: 06a87b6ff2c8def4e8e28929f05f1f7b, type: 3}
   EnergyConsumption: 1
   BarColour: {r: 0.9528302, g: 0.30003524, b: 0, a: 1}
   Population: 0
@@ -1276,7 +1277,8 @@ MonoBehaviour:
   Consumption:
   - SpawnableObject: {fileID: 1535073042}
     Amount: 1
-  Prefabs: []
+  Prefabs:
+  - {fileID: 3467262687917412482, guid: a9747bbce33dc1742923abf88566d823, type: 3}
   EnergyConsumption: 1
   BarColour: {r: 0.829436, g: 1, b: 0.43867922, a: 1}
   Population: 0
@@ -2083,7 +2085,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 160}
+  m_SizeDelta: {x: 0, y: 96}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1973752629
 MonoBehaviour:
