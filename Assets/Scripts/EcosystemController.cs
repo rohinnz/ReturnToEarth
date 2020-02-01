@@ -32,18 +32,20 @@ public class EcosystemController : MonoBehaviour
         {
             return;
         }
-        Debug.Log(amount.ToString("0 ") + o.name + " culled");
+        Debug.Log(amount.ToString("0 ") + o.name + " to cull");
         Debug.Log(GameCore.CreationLookup[o.name].Count);
         if (GameCore.CreationLookup[o.name].Count > amount)
         {
-            for (int i = 0; i < amount; i++)
-            {
-                int randomIndex = Random.Range(0, GameCore.CreationLookup[o.name].Count);
-                Creation c = GameCore.CreationLookup[o.name][randomIndex];
-                Destroy(c.gameObject);
-                GameCore.CreationLookup[o.name].RemoveAt(randomIndex);
+                for (int i = 0; i < amount; i++)
+                {
+                    int randomIndex = Random.Range(0, GameCore.CreationLookup[o.name].Count);
+                    Creation c = GameCore.CreationLookup[o.name][randomIndex];
+                    Debug.Log(c.name);
+                    Destroy(c.gameObject);
+                    GameCore.CreationLookup[o.name].RemoveAt(randomIndex);
+
+                }
             }
-        }
         else
         {
             for (int i = 0; i < GameCore.CreationLookup[o.name].Count; i++)
@@ -75,7 +77,7 @@ public class EcosystemController : MonoBehaviour
         {
             if (o.TotalConsumptionOfMe > o.Population)
             {
-                Cull(o, Mathf.FloorToInt(o.Population - o.TotalConsumptionOfMe));
+                Cull(o, Mathf.FloorToInt(o.TotalConsumptionOfMe - o.Population));
             }
         }
 
