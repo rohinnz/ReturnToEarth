@@ -22,25 +22,30 @@ public class SpawnerRay : MonoBehaviour
 
     public void UseSelectedSpawnable(RaycastHit hit)
     {
-        if (!selectedSpawn.isWater)
+        if (SpawnerLoader.loadProgress == 1f)
         {
-            Vector3 spawnPoint = hit.point;
-            Quaternion startRotation = Quaternion.LookRotation(hit.normal);
-            GameObject newGo = Instantiate(selectedSpawn.Prefabs[Random.Range(0,selectedSpawn.Prefabs.Length)], spawnPoint, startRotation, hit.transform);
-            Creation newCreation = newGo.AddComponent<Creation>();
-            newCreation.spawnableObject = selectedSpawn;
+
+            if (!selectedSpawn.isWater)
+            {
+                Vector3 spawnPoint = hit.point;
+                Quaternion startRotation = Quaternion.LookRotation(hit.normal);
+                GameObject newGo = Instantiate(selectedSpawn.Prefabs[Random.Range(0,selectedSpawn.Prefabs.Length)], spawnPoint, startRotation, hit.transform);
+                Creation newCreation = newGo.AddComponent<Creation>();
+                newCreation.spawnableObject = selectedSpawn;
             
-            Debug.Log(GameCore.CreationLookup.Count);
-            ecosystem.Populate(newCreation);
-        }
-        // Water is a special case, should change how it is used if there's time.
-        else
-        {
-            gameCore.IncreaseWater(selectedSpawn.SpawnAmount);
-        }
+                Debug.Log(GameCore.CreationLookup.Count);
+                ecosystem.Populate(newCreation);
+            }
+            // Water is a special case, should change how it is used if there's time.
+            else
+            {
+                gameCore.IncreaseWater(selectedSpawn.SpawnAmount);
+            }
         
-        gameCore.UseEnergy(selectedSpawn.EnergyConsumption);
-        uiController.UpdatePopulationDetails();
+            gameCore.UseEnergy(selectedSpawn.EnergyConsumption);
+            uiController.UpdatePopulationDetails();
+
+        }
     }
 
     void Start()

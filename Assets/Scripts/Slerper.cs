@@ -32,7 +32,7 @@ public class Slerper : MonoBehaviour
         progress = 0f;
     }
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         if (targetVal != fromVal)
         {
