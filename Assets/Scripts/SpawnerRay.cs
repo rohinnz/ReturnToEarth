@@ -18,29 +18,34 @@ public class SpawnerRay : MonoBehaviour
     {
         selectedSpawn = spawnable;
         uiController.UpdateSpawnerText(spawnable);
+        FindObjectOfType<SpawnerLoader>().SwitchLoadout(1);
     }
 
     public void UseSelectedSpawnable(RaycastHit hit)
     {
-        if (!selectedSpawn.isWater)
+        if (SpawnerLoader.loadProgress == 1f)
         {
-            Vector3 spawnPoint = hit.point;
-            Quaternion startRotation = Quaternion.LookRotation(hit.normal);
-            GameObject newGo = Instantiate(selectedSpawn.Prefabs[Random.Range(0,selectedSpawn.Prefabs.Length)], spawnPoint, startRotation, hit.transform);
-            Creation newCreation = newGo.AddComponent<Creation>();
-            newCreation.spawnableObject = selectedSpawn;
+
+            if (!selectedSpawn.isWater)
+            {
+                Vector3 spawnPoint = hit.point;
+                Quaternion startRotation = Quaternion.LookRotation(hit.normal);
+                GameObject newGo = Instantiate(selectedSpawn.Prefabs[Random.Range(0,selectedSpawn.Prefabs.Length)], spawnPoint, startRotation, hit.transform);
+                Creation newCreation = newGo.AddComponent<Creation>();
+                newCreation.spawnableObject = selectedSpawn;
             
-            Debug.Log(GameCore.CreationLookup.Count);
-            ecosystem.Populate(newCreation);
-        }
-        // Water is a special case, should change how it is used if there's time.
-        else
-        {
-            gameCore.IncreaseWater(selectedSpawn.SpawnAmount);
-        }
+                Debug.Log(GameCore.CreationLookup.Count);
+                ecosystem.Populate(newCreation);
+            }
+            // Water is a special case, should change how it is used if there's time.
+            else
+            {
+                gameCore.IncreaseWater(selectedSpawn.SpawnAmount);
+            }
         
-        gameCore.UseEnergy(selectedSpawn.EnergyConsumption);
-        uiController.UpdatePopulationDetails();
+            gameCore.UseEnergy(selectedSpawn.EnergyConsumption);
+            uiController.UpdatePopulationDetails();
+        }
     }
 
     void Start()
@@ -51,15 +56,17 @@ public class SpawnerRay : MonoBehaviour
         selectedSpawn = GameCore.SpawnableLookup["Water"];
     }
 
+    
+
     void Update()
     {
         Targeter.gameObject.SetActive(false);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit[] hits = Physics.RaycastAll(ray, 1000, planetLayer.value);
-        canSpawn = true;
+        canSpawn = SpawnerLoader.loadProgress == 1f ? true : false;
         int planetHitIndex = -1;
 
-        if (hits.Length > 0)
+        if (hits.Length > 0 && canSpawn)
         {
             for (int i = 0; i < hits.Length; i++)
             {

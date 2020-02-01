@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class UIController : MonoBehaviour
     public Transform ButtonPanel;
     public Transform SpawnableObjectsContainer;
     SpawnerRay spawnerRay;
-    public Text selectedSpawnerText;
+    public TMP_Text selectedSpawnerText;
     public UIPopulationPanel populationPanel;
     
     private void Start()
