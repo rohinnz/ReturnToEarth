@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Tooltipable : MonoBehaviour
 {
+
     public Button myButton;
     [TextArea]
     public string tooltipText;

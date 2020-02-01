@@ -18,6 +18,11 @@ public class SpawnableObject : MonoBehaviour
     public GameObject[] Prefabs;
     public float EnergyConsumption = 1f;
     public Color BarColour;
+    [TextArea]
+    public string Tooltip;
+
+    public int TooltipLines = 3;
+
     //public float Population = 0f;
     public float Population
     {
