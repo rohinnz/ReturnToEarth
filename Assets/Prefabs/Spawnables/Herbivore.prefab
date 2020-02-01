@@ -419,7 +419,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3467262687917412480}
-  - component: {fileID: -8556091667327579296}
   - component: {fileID: 2229892209321744866}
   m_Layer: 0
   m_Name: Herbivore
@@ -443,19 +442,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8556091667327579296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3467262687917412482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe2b1007118ecf049bd7304b852307d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnableObject: {fileID: 0}
 --- !u!135 &2229892209321744866
 SphereCollider:
   m_ObjectHideFlags: 0

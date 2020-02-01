@@ -985,10 +985,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 274b13eb207306845914088a45a1a886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedSpawn: {fileID: 0}
+  selectedSpawn: {fileID: 1627210613}
   gameCore: {fileID: 0}
   planetTransform: {fileID: 1255714236}
   Targeter: {fileID: 733237094}
+  planetLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1146254864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,7 +1222,7 @@ MonoBehaviour:
   Consumption:
   - SpawnableObject: {fileID: 1336829719}
     Amount: 1
-  Prefab: {fileID: 3467262687917412482, guid: f6198f05f66992c4bbf6f439a36c9a04, type: 3}
+  Prefab: {fileID: 3040406310646630065, guid: 06a87b6ff2c8def4e8e28929f05f1f7b, type: 3}
   EnergyConsumption: 1
   BarColour: {r: 0.9528302, g: 0.30003524, b: 0, a: 1}
   Population: 0
@@ -1400,6 +1403,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977819192417808284, guid: eb04e474a5d95b34689baf46cf3bcdf1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7977819192417808284, guid: eb04e474a5d95b34689baf46cf3bcdf1,
+        type: 3}
+      propertyPath: m_Name
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb04e474a5d95b34689baf46cf3bcdf1, type: 3}

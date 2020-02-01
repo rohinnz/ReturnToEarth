@@ -26,7 +26,10 @@ public class SpawnerRay : MonoBehaviour
             Vector3 spawnPoint = hit.point;
             Quaternion startRotation = Quaternion.LookRotation(hit.normal);
             GameObject newGo = Instantiate(selectedSpawn.Prefab, spawnPoint, startRotation, hit.transform);
+            newGo.AddComponent<Creation>();
+            Creation newCreation = newGo.GetComponent<Creation>();
             newGo.GetComponent<Creation>().spawnableObject = selectedSpawn;
+            GameCore.CreationLookup[selectedSpawn.name].Add(newCreation);
             ecosystem.Populate(selectedSpawn, selectedSpawn.SpawnAmount);
         }
         // Water is a special case, should change how it is used if there's time.
@@ -45,7 +48,7 @@ public class SpawnerRay : MonoBehaviour
         ecosystem = FindObjectOfType<EcosystemController>();
         gameCore = FindObjectOfType<GameCore>();
         uiController = FindObjectOfType<UIController>();
-        selectedSpawn = GameCore.SpawnableLookup["water"];
+        selectedSpawn = GameCore.SpawnableLookup["Water"];
     }
 
     void Update()

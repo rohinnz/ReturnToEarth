@@ -42,7 +42,7 @@ public class GameCore : MonoBehaviour
         colliders = Physics.OverlapSphere(waterCollider.transform.position, waterCollider.transform.localScale.x);
         foreach(Collider h in colliders)
         {
-            Debug.Log(h.transform.name);
+            //Debug.Log(h.transform.name);
             if (h.transform.GetComponent<Creation>() != null)
             {
                 ecosystem.Kill(h.transform.gameObject.GetComponent<Creation>());
