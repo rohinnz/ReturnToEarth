@@ -18,6 +18,7 @@ public class SpawnerRay : MonoBehaviour
     {
         selectedSpawn = spawnable;
         uiController.UpdateSpawnerText(spawnable);
+        FindObjectOfType<SpawnerLoader>().SwitchLoadout(1);
     }
 
     public void UseSelectedSpawnable(RaycastHit hit)
@@ -44,7 +45,6 @@ public class SpawnerRay : MonoBehaviour
         
             gameCore.UseEnergy(selectedSpawn.EnergyConsumption);
             uiController.UpdatePopulationDetails();
-
         }
     }
 
@@ -56,15 +56,17 @@ public class SpawnerRay : MonoBehaviour
         selectedSpawn = GameCore.SpawnableLookup["Water"];
     }
 
+    
+
     void Update()
     {
         Targeter.gameObject.SetActive(false);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit[] hits = Physics.RaycastAll(ray, 1000, planetLayer.value);
-        canSpawn = true;
+        canSpawn = SpawnerLoader.loadProgress == 1f ? true : false;
         int planetHitIndex = -1;
 
-        if (hits.Length > 0)
+        if (hits.Length > 0 && canSpawn)
         {
             for (int i = 0; i < hits.Length; i++)
             {

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class GameCore : MonoBehaviour
     public float GameSpeed = 1f;
     public float Energy;
     public float MaxEnergy = 200f;
-    public Text EnergyText;
+    public TMP_Text EnergyText;
     public Slerper EnergySlerper;
 
     public static float WaterLevel = 50f;
