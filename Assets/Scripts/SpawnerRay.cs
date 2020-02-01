@@ -14,6 +14,9 @@ public class SpawnerRay : MonoBehaviour
     public Transform Targeter;
     public LayerMask planetLayer;
     bool canSpawn = true;
+    float cameraStartDistance;
+    float zoomSpeed = 1f;
+
     public void SelectSpawnable(SpawnableObject spawnable)
     {
         selectedSpawn = spawnable;
@@ -53,13 +56,14 @@ public class SpawnerRay : MonoBehaviour
         ecosystem = FindObjectOfType<EcosystemController>();
         gameCore = FindObjectOfType<GameCore>();
         uiController = FindObjectOfType<UIController>();
-        selectedSpawn = GameCore.SpawnableLookup["Water"];
+        SelectSpawnable(GameCore.SpawnableLookup["Water"]);
     }
 
     
 
     void Update()
     {
+        cameraStartDistance = Vector3.Distance(Camera.main.transform.position, planetTransform.position);
         Targeter.gameObject.SetActive(false);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit[] hits = Physics.RaycastAll(ray, 1000, planetLayer.value);
@@ -89,6 +93,25 @@ public class SpawnerRay : MonoBehaviour
                 UseSelectedSpawnable(hits[planetHitIndex]);
             }
         }
+
+        if (Input.GetKey(KeyCode.Plus) || Input.GetKey(KeyCode.KeypadPlus))
+        {
+            if (Vector3.Distance(Camera.main.transform.position, planetTransform.position) > 2f)
+            {
+                Camera.main.transform.localPosition += Camera.main.transform.forward * zoomSpeed * Time.deltaTime;
+            }
+            
+        }
+
+        if (Input.GetKey(KeyCode.Minus) || Input.GetKey(KeyCode.KeypadMinus))
+        {
+            if (Vector3.Distance(Camera.main.transform.position, planetTransform.position) < 5f)
+            {
+                Camera.main.transform.localPosition -= Camera.main.transform.forward * zoomSpeed * Time.deltaTime;
+            }
+
+        }
+
         if (Input.GetMouseButtonDown(1))
         {
             mouseRotationStart = Input.mousePosition;
