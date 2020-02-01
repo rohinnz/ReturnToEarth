@@ -13,6 +13,7 @@ public class SpawnerRay : MonoBehaviour
     public Transform planetTransform;
     public Transform Targeter;
     public LayerMask planetLayer;
+    bool canSpawn = true;
     public void SelectSpawnable(SpawnableObject spawnable)
     {
         selectedSpawn = spawnable;
@@ -25,10 +26,9 @@ public class SpawnerRay : MonoBehaviour
         {
             Vector3 spawnPoint = hit.point;
             Quaternion startRotation = Quaternion.LookRotation(hit.normal);
-            GameObject newGo = Instantiate(selectedSpawn.Prefab, spawnPoint, startRotation, hit.transform);
-            newGo.AddComponent<Creation>();
-            Creation newCreation = newGo.GetComponent<Creation>();
-            newGo.GetComponent<Creation>().spawnableObject = selectedSpawn;
+            GameObject newGo = Instantiate(selectedSpawn.Prefabs[Random.Range(0,selectedSpawn.Prefabs.Length)], spawnPoint, startRotation, hit.transform);
+            Creation newCreation = newGo.AddComponent<Creation>();
+            newCreation.spawnableObject = selectedSpawn;
             GameCore.CreationLookup[selectedSpawn.name].Add(newCreation);
             ecosystem.Populate(selectedSpawn, selectedSpawn.SpawnAmount);
         }
@@ -53,15 +53,33 @@ public class SpawnerRay : MonoBehaviour
 
     void Update()
     {
-        RaycastHit hit;
+        Targeter.gameObject.SetActive(false);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit,1000,planetLayer.value))
-        {
-            Targeter.position = hit.point;
+        RaycastHit[] hits = Physics.RaycastAll(ray, 1000, planetLayer.value);
+        canSpawn = true;
+        int planetHitIndex = -1;
 
-            if (Input.GetMouseButton(0))
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
             {
-                UseSelectedSpawnable(hit);
+                //Debug.Log(hits[i].transform.name);
+                RaycastHit h = hits[i];
+                if (h.transform.tag == "Planet")
+                {
+                    Targeter.gameObject.SetActive(true);
+                    Targeter.position = h.point;
+                    planetHitIndex = i;
+                }
+                else
+                {
+                    canSpawn = false;
+                }
+            }
+
+            if (Input.GetMouseButton(0) && planetHitIndex != -1 && canSpawn)
+            {
+                UseSelectedSpawnable(hits[planetHitIndex]);
             }
         }
         if (Input.GetMouseButtonDown(1))

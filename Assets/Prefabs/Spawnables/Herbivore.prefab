@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3467262686919163183}
   - component: {fileID: 3467262686919163181}
   - component: {fileID: 3467262686919163182}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 3467262687038439008}
   - component: {fileID: 3467262687038439069}
   - component: {fileID: 3467262687038439070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 3467262687048426536}
   - component: {fileID: 3467262687048426533}
   - component: {fileID: 3467262687048426534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 3467262687402962775}
   - component: {fileID: 3467262687402962776}
   - component: {fileID: 3467262687402962777}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 3467262687711059516}
   - component: {fileID: 3467262687711059514}
   - component: {fileID: 3467262687711059515}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3467262687917412480}
   - component: {fileID: 2229892209321744866}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Herbivore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.02
+  m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3467262687983637680
 GameObject:
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 3467262687983637679}
   - component: {fileID: 3467262687983637677}
   - component: {fileID: 3467262687983637678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5540029437763731303}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
