@@ -43,7 +43,6 @@ public class EcosystemController : MonoBehaviour
                     Debug.Log(c.name);
                     Destroy(c.gameObject);
                     GameCore.CreationLookup[o.name].RemoveAt(randomIndex);
-
                 }
             }
         else

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 619828239497876436}
+  - component: {fileID: 1363808003567506232}
   m_Layer: 9
   m_Name: Hammer Head
   m_TagString: Untagged
@@ -31,19 +32,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &104956527776400216
-BoxCollider:
+--- !u!135 &1363808003567506232
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3474938541834727330}
+  m_GameObject: {fileID: 3040406310646630065}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.025430094, y: 0.067692906, z: 0.0533124}
-  m_Center: {x: 0, y: -0.010050276, z: 0.027745545}
+  m_Radius: 1.38
+  m_Center: {x: 0, y: 0, z: 0.63}
 --- !u!1001 &1333324369319542171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,12 +132,6 @@ PrefabInstance:
 --- !u!4 &6339484693417694849 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 2183ef6fbc4da554ab911dfa11d87de5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1333324369319542171}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3474938541834727330 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2502203975881118265, guid: 2183ef6fbc4da554ab911dfa11d87de5,
     type: 3}
   m_PrefabInstance: {fileID: 1333324369319542171}
   m_PrefabAsset: {fileID: 0}
