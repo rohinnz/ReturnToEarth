@@ -31,15 +31,15 @@ public class EcosystemController : MonoBehaviour
         {
             return;
         }
-        Debug.Log(amount.ToString("0 ") + o.name + " to cull");
-        Debug.Log(GameCore.CreationLookup[o.name].Count);
+        //Debug.Log(amount.ToString("0 ") + o.name + " to cull");
+        //Debug.Log(GameCore.CreationLookup[o.name].Count);
         if (GameCore.CreationLookup[o.name].Count > amount)
         {
                 for (int i = 0; i < amount; i++)
                 {
                     int randomIndex = Random.Range(0, GameCore.CreationLookup[o.name].Count);
                     Creation c = GameCore.CreationLookup[o.name][randomIndex];
-                    Debug.Log(c.name);
+                    //Debug.Log(c.name);
                     Destroy(c.gameObject);
                     GameCore.CreationLookup[o.name].RemoveAt(randomIndex);
                 }
@@ -98,7 +98,19 @@ public class EcosystemController : MonoBehaviour
                 }
 
             }
-            Cull(o, unitsToKill);
+            if (unitsToKill > 0 && o.Population > 0)
+            {
+                if (o.name != "Vegetation")
+                {
+                    GameCore.instance.UpdatesText.text = unitsToKill.ToString("<color=red>0</color> " + o.name + "s starved to death");
+                }
+                else
+                {
+                    GameCore.instance.UpdatesText.text = unitsToKill.ToString("<color=red>0</color> " + o.name + " withered and died without water");
+                }
+                Cull(o, unitsToKill);
+            }
+            
         }
 
         uiController.UpdatePopulationDetails();

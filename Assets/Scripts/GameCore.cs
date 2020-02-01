@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class GameCore : MonoBehaviour
 {
+    public static GameCore instance;
+    public TMP_Text TickText;
+    public TMP_Text UpdatesText;
+    int TickCount = 1;
+
     public float GameSpeed = 1f;
     public float Energy;
     public float MaxEnergy = 200f;
@@ -16,6 +21,7 @@ public class GameCore : MonoBehaviour
 
     public SphereCollider waterCollider;
     public Scaleable WaterScaler;
+    public Transform WaterTransform;
 
     public static Dictionary<string, SpawnableObject> SpawnableLookup = new Dictionary<string, SpawnableObject>();
     public static List<SpawnableObject> SpawnableList = new List<SpawnableObject>();
@@ -28,6 +34,7 @@ public class GameCore : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        instance = this;
         ecosystem = FindObjectOfType<EcosystemController>();
         uiController = FindObjectOfType<UIController>();
         Energy = MaxEnergy;
@@ -40,16 +47,44 @@ public class GameCore : MonoBehaviour
 
     void GameTick()
     {
+        TickCount++;
+        TickText.text = TickCount.ToString("Game Ticks: 0");
+        int drownCount = 0;
+        int vegetationWashedOut = 0;
+        UpdatesText.text = "";
         RaycastHit[] hits;
         Collider[] colliders;
         colliders = Physics.OverlapSphere(waterCollider.transform.position, waterCollider.transform.localScale.x,spawnerRay.planetLayer);
         foreach(Collider h in colliders)
         {
+            Creation c = h.transform.GetComponent<Creation>();
             //Debug.Log(h.transform.name);
-            if (h.transform.GetComponent<Creation>() != null)
+            if (c != null)
             {
                 ecosystem.Kill(h.transform.gameObject.GetComponent<Creation>());
+                if (c.spawnableObject.name == "Vegetation")
+                {
+                    vegetationWashedOut++;
+                }
+                else
+                {
+                    drownCount += 1;
+                }
+                
             }
+        }
+        if (drownCount > 0)
+        {
+            UpdatesText.text += drownCount.ToString("0 creatures drowned");
+        }
+        if (vegetationWashedOut > 0)
+        {
+            UpdatesText.text += vegetationWashedOut.ToString("0 vegetation washed away");
+        }
+        if (WaterTransform.localScale.x >= 1.4f)
+        {
+            // Player has drowned the planet and lost
+            Debug.Log("Planet DROWNED!");
         }
         ecosystem.PopulationTick();
     }

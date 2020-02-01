@@ -16,6 +16,8 @@ public class SpawnableObject : MonoBehaviour
     public bool isWater = false;
     public List<Consumption> Consumption = new List<Consumption>();
     public GameObject[] Prefabs;
+
+    public bool canSwim = false;
     public float EnergyConsumption = 1f;
     public Color BarColour;
     [TextArea]
