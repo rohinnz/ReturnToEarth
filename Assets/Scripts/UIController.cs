@@ -9,15 +9,13 @@ public class UIController : MonoBehaviour
     public Transform ButtonPanel;
     public Transform SpawnableObjectsContainer;
     SpawnerRay spawnerRay;
-    GameCore gameCore;
     public Text selectedSpawnerText;
     public UIPopulationPanel populationPanel;
     
     private void Start()
     {
-        gameCore = FindObjectOfType<GameCore>();
         spawnerRay = FindObjectOfType<SpawnerRay>();
-        List<SpawnableObject> spawnables = gameCore.SpawnableList;
+        List<SpawnableObject> spawnables = GameCore.SpawnableList;
         foreach(SpawnableObject o in spawnables)
         {
             GameObject newGO = Instantiate(SpawnButtonPrefab, ButtonPanel);

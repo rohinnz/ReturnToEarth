@@ -12,8 +12,8 @@ public class GameCore : MonoBehaviour
 
     public Scaleable WaterScaler;
 
-    public Dictionary<string, SpawnableObject> SpawnableLookup = new Dictionary<string, SpawnableObject>();
-    public List<SpawnableObject> SpawnableList = new List<SpawnableObject>();
+    public static Dictionary<string, SpawnableObject> SpawnableLookup = new Dictionary<string, SpawnableObject>();
+    public static List<SpawnableObject> SpawnableList = new List<SpawnableObject>();
     public Transform SpawnableObjectsContainer;
     EcosystemController ecosystem;
     UIController uiController;
@@ -27,8 +27,13 @@ public class GameCore : MonoBehaviour
         UpdateEnergy();
         SpawnableList = GetSpawnables();
         uiController.populationPanel.CreatePopulationPanels(SpawnableList);
+        InvokeRepeating("GameTick", 1f, 1f);
     }
 
+    void GameTick()
+    {
+        ecosystem.PopulationTick();
+    }
 
     List<SpawnableObject> GetSpawnables()
     {

@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class SpawnerRay : MonoBehaviour
 {
-    public GameObject treePrefab;
     EcosystemController ecosystem;
     public SpawnableObject selectedSpawn;
     public GameCore gameCore;
     UIController uiController;
-    
+    Vector3 mouseRotationStart;
+    Vector3 mouseRotationTarget;
+    public Transform planetTransform;
 
     public void SelectSpawnable(SpawnableObject spawnable)
     {
@@ -50,6 +51,17 @@ public class SpawnerRay : MonoBehaviour
             {
                 UseSelectedSpawnable(hit);
             }
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            mouseRotationStart = Input.mousePosition;
+        }
+        if (Input.GetMouseButton(1))
+        {
+            mouseRotationTarget = Input.mousePosition;
+            //Vector3 rotation = new Vector3((mouseRotationTarget.y - mouseRotationStart.y)*-1, mouseRotationTarget.x - mouseRotationStart.x)*0.01f;
+            Camera.main.transform.parent.Rotate(planetTransform.up, (mouseRotationTarget.x - mouseRotationStart.x)*0.01f);
+            //planetTransform.Rotate(rotation,Space.World);
         }
     }
 }
