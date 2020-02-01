@@ -11,6 +11,8 @@ public class GameCore : MonoBehaviour
     public Text EnergyText;
     public Slerper EnergySlerper;
 
+    public static float WaterLevel = 20f;
+
     public SphereCollider waterCollider;
     public Scaleable WaterScaler;
 
@@ -75,7 +77,8 @@ public class GameCore : MonoBehaviour
 
     public void IncreaseWater(float amount)
     {
-        ecosystem.Populate(SpawnableLookup["Water"], amount);
+        WaterLevel += amount;
+        //ecosystem.Populate(SpawnableLookup["Water"], amount);
         WaterScaler.IncreaseScale(amount);
     }
 

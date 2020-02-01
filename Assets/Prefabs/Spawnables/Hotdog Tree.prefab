@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4784998807891458220}
-  m_Layer: 0
+  - component: {fileID: 7074017620701504985}
+  m_Layer: 9
   m_Name: Hotdog Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,19 +32,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6409661041027421623
+--- !u!135 &7074017620701504985
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4195944886447639949}
+  m_GameObject: {fileID: 3421235636456697695}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.02
-  m_Center: {x: -0.008629493, y: -9.313226e-10, z: 0.01}
+  m_Radius: 0.015
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5267822549250299012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -126,14 +127,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: hotdog_tree
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c3b4ab06f73472b44a8ce9f2162ec685,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b4ab06f73472b44a8ce9f2162ec685, type: 3}
---- !u!1 &4195944886447639949 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: c3b4ab06f73472b44a8ce9f2162ec685,
-    type: 3}
-  m_PrefabInstance: {fileID: 5267822549250299012}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &892175054924873630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: c3b4ab06f73472b44a8ce9f2162ec685,

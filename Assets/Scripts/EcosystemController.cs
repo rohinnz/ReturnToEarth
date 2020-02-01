@@ -14,15 +14,14 @@ public class EcosystemController : MonoBehaviour
         uiController = FindObjectOfType<UIController>();
     }
 
-    public void Populate(SpawnableObject o, float amount)
+    public void Populate(Creation newCreation)
     {
-        o.Population += amount;
+        GameCore.CreationLookup[newCreation.spawnableObject.name].Add(newCreation);
     }
 
     public void  Kill (Creation c)
     {
         GameCore.CreationLookup[c.spawnableObject.name].Remove(c);
-        c.spawnableObject.Population -= c.spawnableObject.SpawnAmount;
         Destroy(c.gameObject);
     }
 
@@ -85,6 +84,21 @@ public class EcosystemController : MonoBehaviour
             {
                 Cull(o, Mathf.FloorToInt(o.TotalConsumptionOfMe - o.Population));
             }
+        }
+
+        foreach (SpawnableObject o in GameCore.SpawnableList)
+        {
+            int unitsToKill = 0;
+            foreach(Consumption c in o.Consumption)
+            {
+                // When the population is insufficient for this creature to feed
+                if (c.SpawnableObject.TotalConsumptionOfMe > c.SpawnableObject.Population)
+                {
+                    unitsToKill += Random.Range(0, Mathf.FloorToInt(c.SpawnableObject.TotalConsumptionOfMe - c.SpawnableObject.Population)+1);
+                }
+
+            }
+            Cull(o, unitsToKill);
         }
 
         uiController.UpdatePopulationDetails();

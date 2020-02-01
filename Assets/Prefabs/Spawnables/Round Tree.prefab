@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!135 &6980454858092816367
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2048551181549735981}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.02
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2163670883642351072
 GameObject:
   m_ObjectHideFlags: 0
@@ -22,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8188602299849312657}
-  m_Layer: 0
+  - component: {fileID: 4778200861716522214}
+  m_Layer: 9
   m_Name: Round Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,6 +32,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &4778200861716522214
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163670883642351072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.01
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8019793163700259108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -126,14 +127,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: round_tree
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ac9899ccd995b114d83c7afb8ecb670a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac9899ccd995b114d83c7afb8ecb670a, type: 3}
---- !u!1 &2048551181549735981 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: ac9899ccd995b114d83c7afb8ecb670a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8019793163700259108}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3041816144415318590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ac9899ccd995b114d83c7afb8ecb670a,

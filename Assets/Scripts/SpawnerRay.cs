@@ -29,15 +29,14 @@ public class SpawnerRay : MonoBehaviour
             GameObject newGo = Instantiate(selectedSpawn.Prefabs[Random.Range(0,selectedSpawn.Prefabs.Length)], spawnPoint, startRotation, hit.transform);
             Creation newCreation = newGo.AddComponent<Creation>();
             newCreation.spawnableObject = selectedSpawn;
-            GameCore.CreationLookup[selectedSpawn.name].Add(newCreation);
+            
             Debug.Log(GameCore.CreationLookup.Count);
-            ecosystem.Populate(selectedSpawn, selectedSpawn.SpawnAmount);
+            ecosystem.Populate(newCreation);
         }
         // Water is a special case, should change how it is used if there's time.
         else
         {
             gameCore.IncreaseWater(selectedSpawn.SpawnAmount);
-            ecosystem.Populate(selectedSpawn, selectedSpawn.SpawnAmount);
         }
         
         gameCore.UseEnergy(selectedSpawn.EnergyConsumption);
