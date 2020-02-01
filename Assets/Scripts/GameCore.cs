@@ -11,6 +11,7 @@ public class GameCore : MonoBehaviour
     public Text EnergyText;
     public Slerper EnergySlerper;
 
+    public SphereCollider waterCollider;
     public Scaleable WaterScaler;
 
     public static Dictionary<string, SpawnableObject> SpawnableLookup = new Dictionary<string, SpawnableObject>();
@@ -33,6 +34,18 @@ public class GameCore : MonoBehaviour
 
     void GameTick()
     {
+        RaycastHit[] hits;
+        SphereCollider sc;
+        
+        hits = Physics.SphereCastAll(waterCollider.transform.position+waterCollider.center, waterCollider.transform.localScale.x, Vector3.zero);
+        foreach(RaycastHit h in hits)
+        {
+            Debug.Log(h.transform.name);
+            if (h.transform.GetComponent<Creation>() != null)
+            {
+                ecosystem.Kill(h.transform.gameObject.GetComponent<Creation>());
+            }
+        }
         ecosystem.PopulationTick();
     }
 

@@ -17,9 +17,7 @@ public class UIPopulationDetail : MonoBehaviour
 
     public void Refresh()
     {
-        PopulationText.text = spawnableObject.isWater ?
-            spawnableObject.name + spawnableObject.Population.ToString(" [0%]") :
-            spawnableObject.name + spawnableObject.Population.ToString(" [0]");
+        PopulationText.text = spawnableObject.name + spawnableObject.Population.ToString(" [0]");
 
         if (spawnableObject.Population == 0f)
         {
@@ -31,7 +29,7 @@ public class UIPopulationDetail : MonoBehaviour
         }
 
         ConsumptionText.text = "Consumption: ";
-        ConsumptionText.text += spawnableObject.TotalConsumptionOfMe > 0f ? "<color=red>" : "";
+        ConsumptionText.text += spawnableObject.TotalConsumptionOfMe > spawnableObject.Population ? "<color=red>" : "<color=green>";
         ConsumptionText.text += spawnableObject.TotalConsumptionOfMe.ToString("0");
     }
 }

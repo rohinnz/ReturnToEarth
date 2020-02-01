@@ -25,12 +25,14 @@ public class SpawnerRay : MonoBehaviour
             Vector3 spawnPoint = hit.point;
             Quaternion startRotation = Quaternion.LookRotation(hit.normal);
             GameObject newGo = Instantiate(selectedSpawn.Prefab, spawnPoint, startRotation, hit.transform);
+            newGo.GetComponent<Creation>().spawnableObject = selectedSpawn;
             ecosystem.Populate(selectedSpawn, selectedSpawn.SpawnAmount);
         }
+        // Water is a special case, should change how it is used if there's time.
         else
         {
             gameCore.IncreaseWater(selectedSpawn.SpawnAmount);
-            ecosystem.Populate(selectedSpawn, selectedSpawn.SpawnAmount*100);
+            ecosystem.Populate(selectedSpawn, selectedSpawn.SpawnAmount);
         }
         
         gameCore.UseEnergy(selectedSpawn.EnergyConsumption);

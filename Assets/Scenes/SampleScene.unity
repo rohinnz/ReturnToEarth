@@ -258,7 +258,7 @@ SphereCollider:
   m_GameObject: {fileID: 237427457}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.9999998
   m_Center: {x: -0.00000035762795, y: 0.0000016689303, z: 5.039846e-20}
@@ -313,6 +313,7 @@ MonoBehaviour:
   MaxEnergy: 200
   EnergyText: {fileID: 1146254866}
   EnergySlerper: {fileID: 670675013}
+  waterCollider: {fileID: 237427458}
   WaterScaler: {fileID: 237427461}
   SpawnableObjectsContainer: {fileID: 1856633875}
 --- !u!4 &316014286
@@ -342,6 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiController: {fileID: 0}
+  cullRate: 1
 --- !u!1 &640339501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,7 +1575,7 @@ MonoBehaviour:
   EnergyConsumption: 1
   BarColour: {r: 0, g: 0.7882353, b: 0, a: 1}
   Population: 0
-  MaxPopulation: 500
+  MaxPopulation: 2000
   TotalConsumptionOfMe: 0
 --- !u!1 &1627210611
 GameObject:
@@ -1625,7 +1627,7 @@ MonoBehaviour:
   EnergyConsumption: 1
   BarColour: {r: 0, g: 0.63664365, b: 1, a: 1}
   Population: 0
-  MaxPopulation: 1
+  MaxPopulation: 100
   TotalConsumptionOfMe: 0
 --- !u!1 &1822435326 stripped
 GameObject:

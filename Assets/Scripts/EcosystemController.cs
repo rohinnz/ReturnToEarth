@@ -5,7 +5,7 @@ using UnityEngine;
 public class EcosystemController : MonoBehaviour
 {
     public UIController uiController;
-
+    public float cullRate = 1f;
 
 
     private void Start()
@@ -16,6 +16,12 @@ public class EcosystemController : MonoBehaviour
     public void Populate(SpawnableObject o, float amount)
     {
         o.Population += amount;
+    }
+
+    public void  Kill (Creation c)
+    {
+        c.spawnableObject.Population -= c.spawnableObject.SpawnAmount;
+        Destroy(c.gameObject);
     }
 
     public void PopulationTick()
