@@ -16,6 +16,8 @@ public class GameCore : MonoBehaviour
 
     public static Dictionary<string, SpawnableObject> SpawnableLookup = new Dictionary<string, SpawnableObject>();
     public static List<SpawnableObject> SpawnableList = new List<SpawnableObject>();
+    public static Dictionary<string, List<Creation>> CreationLookup = new Dictionary<string, List<Creation>>();
+
     public Transform SpawnableObjectsContainer;
     EcosystemController ecosystem;
     UIController uiController;
@@ -30,15 +32,15 @@ public class GameCore : MonoBehaviour
         SpawnableList = GetSpawnables();
         uiController.populationPanel.CreatePopulationPanels(SpawnableList);
         InvokeRepeating("GameTick",1f,1f);
+        
     }
 
     void GameTick()
     {
         RaycastHit[] hits;
-        SphereCollider sc;
-        
-        hits = Physics.SphereCastAll(waterCollider.transform.position+waterCollider.center, waterCollider.transform.localScale.x, Vector3.zero);
-        foreach(RaycastHit h in hits)
+        Collider[] colliders;
+        colliders = Physics.OverlapSphere(waterCollider.transform.position, waterCollider.transform.localScale.x);
+        foreach(Collider h in colliders)
         {
             Debug.Log(h.transform.name);
             if (h.transform.GetComponent<Creation>() != null)
@@ -57,6 +59,7 @@ public class GameCore : MonoBehaviour
         {
             SpawnableObject o = SpawnableObjectsContainer.GetChild(i).GetComponent<SpawnableObject>();
             spawnables.Add(o);
+            GameCore.CreationLookup.Add(o.name, new List<Creation>());
             SpawnableLookup.Add(o.name, o);
         }
         return spawnables;

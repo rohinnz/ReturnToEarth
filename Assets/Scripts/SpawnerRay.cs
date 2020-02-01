@@ -11,7 +11,8 @@ public class SpawnerRay : MonoBehaviour
     Vector3 mouseRotationStart;
     Vector3 mouseRotationTarget;
     public Transform planetTransform;
-
+    public Transform Targeter;
+    public LayerMask planetLayer;
     public void SelectSpawnable(SpawnableObject spawnable)
     {
         selectedSpawn = spawnable;
@@ -44,15 +45,18 @@ public class SpawnerRay : MonoBehaviour
         ecosystem = FindObjectOfType<EcosystemController>();
         gameCore = FindObjectOfType<GameCore>();
         uiController = FindObjectOfType<UIController>();
+        selectedSpawn = GameCore.SpawnableLookup["water"];
     }
 
     void Update()
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Input.GetMouseButton(0))
+        if (Physics.Raycast(ray, out hit,1000,planetLayer.value))
         {
-            if (Physics.Raycast(ray, out hit))
+            Targeter.position = hit.point;
+
+            if (Input.GetMouseButton(0))
             {
                 UseSelectedSpawnable(hit);
             }

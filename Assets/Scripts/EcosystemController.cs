@@ -7,10 +7,12 @@ public class EcosystemController : MonoBehaviour
     public UIController uiController;
     public float cullRate = 1f;
 
+    
 
     private void Start()
     {
         uiController = FindObjectOfType<UIController>();
+        
     }
 
     public void Populate(SpawnableObject o, float amount)
@@ -22,6 +24,11 @@ public class EcosystemController : MonoBehaviour
     {
         c.spawnableObject.Population -= c.spawnableObject.SpawnAmount;
         Destroy(c.gameObject);
+    }
+
+    public void Cull(SpawnableObject o, int amount)
+    {
+        GameCore.CreationLookup[o.name];
     }
 
     public void PopulationTick()
@@ -38,6 +45,11 @@ public class EcosystemController : MonoBehaviour
                 Debug.Log(o.name + " consumed " + (c.Amount*o.Population).ToString("0") + " of " + c.SpawnableObject.name);
                 c.SpawnableObject.TotalConsumptionOfMe += c.Amount * o.Population;
             }
+        }
+
+        foreach (SpawnableObject o in GameCore.SpawnableList)
+        {
+            o.TotalConsumptionOfMe = 0f;
         }
 
         uiController.UpdatePopulationDetails();
