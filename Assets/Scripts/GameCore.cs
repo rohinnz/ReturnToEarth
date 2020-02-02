@@ -86,7 +86,7 @@ public class GameCore : MonoBehaviour
                 }
                 else
                 {
-                    BodyCounter.RecordDeath(c.name, "drowned", 1);
+                    BodyCounter.RecordDeath(c.spawnableObject.name, "drowned", 1);
                     drownCount += 1;
                 }
                 
