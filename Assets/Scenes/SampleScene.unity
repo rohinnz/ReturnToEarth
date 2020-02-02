@@ -581,6 +581,8 @@ MonoBehaviour:
   WaterScaler: {fileID: 237427461}
   WaterTransform: {fileID: 237427462}
   SpawnableObjectsContainer: {fileID: 1856633875}
+  WinText: []
+  LoseText: []
 --- !u!4 &316014286
 Transform:
   m_ObjectHideFlags: 0
@@ -3129,7 +3131,7 @@ PrefabInstance:
     - target: {fileID: 5598314823832747344, guid: 33f5c8bdbf60c704a81bb85fb3306c19,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.8760122
       objectReference: {fileID: 0}
     - target: {fileID: 5598314823832747344, guid: 33f5c8bdbf60c704a81bb85fb3306c19,
         type: 3}
@@ -3139,7 +3141,7 @@ PrefabInstance:
     - target: {fileID: 5598314823832747344, guid: 33f5c8bdbf60c704a81bb85fb3306c19,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.4822889
       objectReference: {fileID: 0}
     - target: {fileID: 5598314823832747344, guid: 33f5c8bdbf60c704a81bb85fb3306c19,
         type: 3}
@@ -3154,7 +3156,7 @@ PrefabInstance:
     - target: {fileID: 5598314823832747344, guid: 33f5c8bdbf60c704a81bb85fb3306c19,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -122.33
       objectReference: {fileID: 0}
     - target: {fileID: 5598314823832747344, guid: 33f5c8bdbf60c704a81bb85fb3306c19,
         type: 3}
