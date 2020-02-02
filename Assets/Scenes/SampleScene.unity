@@ -1952,6 +1952,8 @@ MonoBehaviour:
   Consumption:
   - SpawnableObject: {fileID: 1336829719}
     Amount: 1
+  - SpawnableObject: {fileID: 1627210613}
+    Amount: 1
   Prefabs:
   - {fileID: 3040406310646630065, guid: 06a87b6ff2c8def4e8e28929f05f1f7b, type: 3}
   canSwim: 0
@@ -2011,6 +2013,8 @@ MonoBehaviour:
   isWater: 0
   Consumption:
   - SpawnableObject: {fileID: 1535073042}
+    Amount: 1
+  - SpawnableObject: {fileID: 1627210613}
     Amount: 1
   Prefabs:
   - {fileID: 5832119880659263802, guid: 6f4e49d2ddb3e6d41ab322e5392201b0, type: 3}
@@ -2273,9 +2277,9 @@ MonoBehaviour:
   - SpawnableObject: {fileID: 1336829719}
     Amount: 2
   - SpawnableObject: {fileID: 1535073042}
-    Amount: 2
+    Amount: 4
   - SpawnableObject: {fileID: 1309852224}
-    Amount: 1
+    Amount: 2
   - SpawnableObject: {fileID: 1627210613}
     Amount: 4
   Prefabs:
