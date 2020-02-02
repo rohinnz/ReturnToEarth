@@ -1849,6 +1849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07610cfa790bd742a217dd89e77acca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 7f377c4d3ea6a1948949a10736fbb8f1, type: 3}
   SpawnAmount: 1
   isWater: 0
   Consumption:
@@ -1908,6 +1909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07610cfa790bd742a217dd89e77acca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: e2436ddfb4b67e54fac715a1b0e9c38c, type: 3}
   SpawnAmount: 1
   isWater: 0
   Consumption:
@@ -2167,6 +2169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07610cfa790bd742a217dd89e77acca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: e02c4d645fd8f6142bf09ebaa0580f9f, type: 3}
   SpawnAmount: 1
   isWater: 0
   Consumption:
@@ -2230,6 +2233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07610cfa790bd742a217dd89e77acca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: 50486ecd5849a1f43b641c2cc4ebb96e, type: 3}
   SpawnAmount: 1
   isWater: 0
   Consumption:
@@ -2293,6 +2297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07610cfa790bd742a217dd89e77acca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: c144fce50b9a6a44aa5137ac7125dac8, type: 3}
   SpawnAmount: 10
   isWater: 1
   Consumption: []
@@ -2885,7 +2890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742fb92e684630d4bb780bd68b81f093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnButtonPrefab: {fileID: 6975946838251900695, guid: bb0e90741419e214ab1c34ecd00df350,
+  SpawnButtonPrefab: {fileID: 6726627080245489394, guid: 586ca31001ff9684484135b7cc333c52,
     type: 3}
   ButtonPanel: {fileID: 1973752628}
   SpawnableObjectsContainer: {fileID: 1856633875}

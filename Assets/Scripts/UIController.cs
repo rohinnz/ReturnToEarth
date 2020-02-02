@@ -21,7 +21,6 @@ public class UIController : MonoBehaviour
         {
             GameObject newGO = Instantiate(SpawnButtonPrefab, ButtonPanel);
             newGO.GetComponent<UISpawnButton>().ObjectToSpawn = o;
-            newGO.GetComponentInChildren<Text>().text = "Spawn "+o.name;
             newGO.GetComponent<Button>().onClick.AddListener(() => { spawnerRay.SelectSpawnable(o); });
         }
     }
