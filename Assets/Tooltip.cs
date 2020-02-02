@@ -23,6 +23,5 @@ public class Tooltip : MonoBehaviour
     private void Update()
     {
         transform.position = Input.mousePosition;
-        Debug.Log(transform.position);
     }
 }

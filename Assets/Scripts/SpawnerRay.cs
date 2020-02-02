@@ -98,7 +98,7 @@ public class SpawnerRay : MonoBehaviour
         {
             if (Vector3.Distance(Camera.main.transform.position, planetTransform.position) > 2f)
             {
-                Camera.main.transform.localPosition += Camera.main.transform.forward * zoomSpeed * Time.deltaTime;
+                Camera.main.transform.position += Camera.main.transform.forward * zoomSpeed * Time.deltaTime;
             }
             
         }
@@ -107,7 +107,7 @@ public class SpawnerRay : MonoBehaviour
         {
             if (Vector3.Distance(Camera.main.transform.position, planetTransform.position) < 5f)
             {
-                Camera.main.transform.localPosition -= Camera.main.transform.forward * zoomSpeed * Time.deltaTime;
+                Camera.main.transform.position -= Camera.main.transform.forward * zoomSpeed * Time.deltaTime;
             }
 
         }

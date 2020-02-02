@@ -5,16 +5,24 @@ using UnityEngine.UI;
 
 public class Tooltipable : MonoBehaviour
 {
+    public UISpawnButton spawnButton;
 
-    public Button myButton;
-    [TextArea]
-    public string tooltipText;
-    public int  tooltipLines = 2;
-    // Start is called before the first frame update
-    void Start()
+    public string tooltipText
     {
-        myButton = GetComponent<Button>();
+        get
+        {
+            return spawnButton.ObjectToSpawn.Tooltip;
+        }
     }
+
+    public int tooltipLines
+    {
+        get
+        {
+            return spawnButton.ObjectToSpawn.TooltipLines;
+        }
+    }
+
 
 
     public void TriggerTooltip()
