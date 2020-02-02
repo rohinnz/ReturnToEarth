@@ -107,6 +107,30 @@ public class GameCore : MonoBehaviour
             Debug.Log("Planet DROWNED!");
         }
         ecosystem.PopulationTick();
+        VictoryCheck();
+    }
+
+    void VictoryCheck()
+    {
+        SpawnableObject human = SpawnableLookup["Humanoid"];
+        bool victory = false;
+        if (human.Population >= 50)
+        {
+            victory = true;
+            foreach(Consumption c in human.Consumption)
+            {
+                if (c.SpawnableObject.TotalConsumptionOfMe > c.SpawnableObject.Population)
+                {
+                    victory = false;
+                }
+            }
+        }
+
+        if (victory)
+        {
+            GameCore.EndScreenText = WinText[0];
+            SceneManager.LoadScene("WinScreen");
+        }
     }
 
     List<SpawnableObject> GetSpawnables()
