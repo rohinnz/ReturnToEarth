@@ -16,6 +16,9 @@ public class SpawnerRay : MonoBehaviour
     bool canSpawn = true;
     float cameraStartDistance;
     float zoomSpeed = 1f;
+    float scrollWheelZoomSpeed = 50f;
+
+    AudioSource audioData;
 
     public void SelectSpawnable(SpawnableObject spawnable)
     {
@@ -36,7 +39,7 @@ public class SpawnerRay : MonoBehaviour
                 GameObject newGo = Instantiate(selectedSpawn.Prefabs[Random.Range(0,selectedSpawn.Prefabs.Length)], spawnPoint, startRotation, hit.transform);
                 Creation newCreation = newGo.AddComponent<Creation>();
                 newCreation.spawnableObject = selectedSpawn;
-            
+
                 Debug.Log(GameCore.CreationLookup.Count);
                 ecosystem.Populate(newCreation);
             }
@@ -57,6 +60,7 @@ public class SpawnerRay : MonoBehaviour
         gameCore = FindObjectOfType<GameCore>();
         uiController = FindObjectOfType<UIController>();
         SelectSpawnable(GameCore.SpawnableLookup["Water"]);
+        audioData = GetComponent<AudioSource>();
     }
 
     
@@ -90,6 +94,8 @@ public class SpawnerRay : MonoBehaviour
 
             if (Input.GetMouseButton(0) && planetHitIndex != -1 && canSpawn)
             {
+                audioData.Stop();
+                audioData.Play(0);
                 UseSelectedSpawnable(hits[planetHitIndex]);
             }
         }
@@ -100,16 +106,34 @@ public class SpawnerRay : MonoBehaviour
             {
                 Camera.main.transform.position += Camera.main.transform.forward * zoomSpeed * Time.deltaTime;
             }
-            
-        }
 
-        if (Input.GetKey(KeyCode.Minus) || Input.GetKey(KeyCode.KeypadMinus))
+        }
+        else if (Input.GetKey(KeyCode.Minus) || Input.GetKey(KeyCode.KeypadMinus))
         {
             if (Vector3.Distance(Camera.main.transform.position, planetTransform.position) < 5f)
             {
                 Camera.main.transform.position -= Camera.main.transform.forward * zoomSpeed * Time.deltaTime;
             }
 
+        }
+        else
+        {
+            var scrollWheelAxis = Input.GetAxis("Mouse ScrollWheel");
+            if (scrollWheelAxis > 0)
+            {
+                if (Vector3.Distance(Camera.main.transform.position, planetTransform.position) > 2f)
+                {
+                    Camera.main.transform.position += Camera.main.transform.forward * scrollWheelZoomSpeed * Time.deltaTime;
+                }
+
+            }
+            else if (scrollWheelAxis < 0)
+            {
+                if (Vector3.Distance(Camera.main.transform.position, planetTransform.position) < 5f)
+                {
+                    Camera.main.transform.position -= Camera.main.transform.forward * scrollWheelZoomSpeed * Time.deltaTime;
+                }
+            }
         }
 
         if (Input.GetMouseButtonDown(1))
