@@ -88,11 +88,11 @@ public class EcosystemController : MonoBehaviour
                         if (o.Population < o.TotalConsumptionOfMe)
                         {
                             
-                            GameCore.instance.UpdatesText.text = o.Population.ToString("<color=red>0</color> " + o.name + "s were eaten\n");
+                            GameCore.instance.UpdatesText.text = o.Population.ToString("<color=red>0</color> " + o.name.ToLower() + "s were eaten\n");
                         }
                         else
                         {
-                            GameCore.instance.UpdatesText.text = unitsToKill.ToString("<color=red>0</color> " + o.name + "s were eaten\n");
+                            GameCore.instance.UpdatesText.text = unitsToKill.ToString("<color=red>0</color> " + o.name.ToLower() + "s were eaten\n");
                         }
                     }
                     
@@ -117,11 +117,11 @@ public class EcosystemController : MonoBehaviour
             {
                 if (o.name != "Vegetation")
                 {
-                    GameCore.instance.UpdatesText.text += unitsToKill.ToString("<color=red>0</color> " + o.name + "s starved to death\n");
+                    GameCore.instance.UpdatesText.text += unitsToKill.ToString("<color=red>0</color> " + o.name.ToLower() + "s starved to death\n");
                 }
                 else
                 {
-                    GameCore.instance.UpdatesText.text += unitsToKill.ToString("<color=red>0</color> " + o.name + " withered and died without water\n");
+                    GameCore.instance.UpdatesText.text += unitsToKill.ToString("<color=red>0</color> " + o.name.ToLower() + " withered and died without water\n");
                 }
                 Cull(o, unitsToKill);
             }

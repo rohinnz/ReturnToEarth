@@ -91,11 +91,11 @@ public class GameCore : MonoBehaviour
         }
         if (drownCount > 0)
         {
-            UpdatesText.text += drownCount.ToString("0 creatures drowned");
+            UpdatesText.text += drownCount.ToString("<color=red>0</color> creatures drowned\n");
         }
         if (vegetationWashedOut > 0)
         {
-            UpdatesText.text += vegetationWashedOut.ToString("0 vegetation washed away");
+            UpdatesText.text += vegetationWashedOut.ToString("<color=red>0</color> vegetation washed away\n");
         }
         if (WaterTransform.localScale.x >= 1.4f)
         {

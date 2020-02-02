@@ -1,18 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PostgameTextController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public TMP_Text ExplanationText;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        ExplanationText.text = GameCore.EndScreenText;
     }
 }

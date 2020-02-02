@@ -10,10 +10,12 @@ public class SpawnerLoader : MonoBehaviour
     public float loadSpeed = 10f;
     public Image loaderBar;
     public TMP_Text loaderText;
+    public TMP_Text loadingText;
 
     public void SwitchLoadout(float speed)
     {
         loadSpeed = speed;
+        loadingText.text = "Loading";
         loadProgress = 0f;
     }
 
@@ -27,6 +29,10 @@ public class SpawnerLoader : MonoBehaviour
             loaderBar.color = c;
             loaderText.color = c;
             loaderBar.fillAmount = loadProgress;
+        }
+        else if (loadingText.text != "Ready")
+        {
+            loadingText.text = "Ready";
         }
     }
 }
