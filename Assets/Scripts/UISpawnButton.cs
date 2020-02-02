@@ -28,6 +28,11 @@ public class UISpawnButton : MonoBehaviour
 
     public void ThisButtonSelected()
     {
+        if (SelectedButton != null)
+        {
+            SelectedButton.DeselectButton();
+        }
         buttonImage.color = HighlightColour;
+        SelectedButton = this;
     }
 }

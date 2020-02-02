@@ -87,11 +87,12 @@ public class EcosystemController : MonoBehaviour
                     {
                         if (o.Population < o.TotalConsumptionOfMe)
                         {
-                            
+                            BodyCounter.RecordDeath(o.name, "eaten", Mathf.FloorToInt(o.Population));
                             GameCore.instance.UpdatesText.text = o.Population.ToString("<color=red>0</color> " + o.name.ToLower() + "s were eaten\n");
                         }
                         else
                         {
+                            BodyCounter.RecordDeath(o.name, "eaten", unitsToKill);
                             GameCore.instance.UpdatesText.text = unitsToKill.ToString("<color=red>0</color> " + o.name.ToLower() + "s were eaten\n");
                         }
                     }
@@ -117,10 +118,12 @@ public class EcosystemController : MonoBehaviour
             {
                 if (o.name != "Vegetation")
                 {
+                    BodyCounter.RecordDeath(o.name, "starved to death", unitsToKill);
                     GameCore.instance.UpdatesText.text += unitsToKill.ToString("<color=red>0</color> " + o.name.ToLower() + "s starved to death\n");
                 }
                 else
                 {
+                    BodyCounter.RecordDeath(o.name, "died from lack of water", unitsToKill);
                     GameCore.instance.UpdatesText.text += unitsToKill.ToString("<color=red>0</color> " + o.name.ToLower() + " withered and died without water\n");
                 }
                 Cull(o, unitsToKill);

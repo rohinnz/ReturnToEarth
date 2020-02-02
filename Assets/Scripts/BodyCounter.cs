@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class BodyCounter : MonoBehaviour
 {
-    public Dictionary<string, Dictionary<string, int>> Memorial = new Dictionary<string, Dictionary<string, int>>();
+    public static Dictionary<string, Dictionary<string, int>> Memorial = new Dictionary<string, Dictionary<string, int>>();
 
-    private void Start()
-    {
-        
-    }
-
-    public void RecordDeath(string creature, string deathType, int amount)
+    public static void RecordDeath(string creature, string deathType, int amount)
     {
         if (Memorial.ContainsKey(creature))
         {
@@ -27,7 +22,8 @@ public class BodyCounter : MonoBehaviour
         }
         else
         {
-            
+            Memorial.Add(creature, new Dictionary<string, int>());
+            Memorial[creature].Add(deathType, amount);
         }
     }
 }
