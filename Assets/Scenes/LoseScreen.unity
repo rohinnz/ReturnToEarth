@@ -1065,6 +1065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplanationText: {fileID: 1317789844}
+  MemorialText: {fileID: 486467807}
 --- !u!1 &1475228114
 GameObject:
   m_ObjectHideFlags: 0
