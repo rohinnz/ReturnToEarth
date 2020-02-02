@@ -586,6 +586,7 @@ MonoBehaviour:
   - 
   LoseText:
   - You've flooded the entire planet!
+  - You ran out of energy and failed to restore the Earth.
 --- !u!4 &316014286
 Transform:
   m_ObjectHideFlags: 0

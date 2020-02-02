@@ -167,7 +167,7 @@ public class GameCore : MonoBehaviour
         Energy -= amount;
         if (Energy <= 0)
         {
-            SceneManager.LoadScene("WinScreen");
+            LoseGame(LoseText[1]);
         }
         UpdateEnergy();
     }
