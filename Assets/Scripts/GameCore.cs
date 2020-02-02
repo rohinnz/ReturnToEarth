@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameCore : MonoBehaviour
@@ -31,6 +32,19 @@ public class GameCore : MonoBehaviour
     EcosystemController ecosystem;
     UIController uiController;
     SpawnerRay spawnerRay;
+
+    public string[] WinText;
+    public string[] LoseText;
+
+    public static string EndScreenText = "Test";
+
+    public void LoseGame(string text)
+    {
+        EndScreenText = text;
+        SceneManager.LoadScene("LoseScreen");
+    }
+
+
     // Start is called before the first frame update
     void Awake()
     {

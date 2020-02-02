@@ -7,8 +7,6 @@ public class EcosystemController : MonoBehaviour
     public UIController uiController;
     public float cullRate = 1f;
 
-    
-
     private void Start()
     {
         uiController = FindObjectOfType<UIController>();
@@ -73,7 +71,6 @@ public class EcosystemController : MonoBehaviour
         {
             foreach(Consumption c in o.Consumption)
             {
-                //Debug.Log(o.name + " consumed " + (c.Amount*o.Population).ToString("0") + " of " + c.SpawnableObject.name);
                 c.SpawnableObject.TotalConsumptionOfMe += c.Amount * o.Population;
             }
         }
@@ -82,7 +79,25 @@ public class EcosystemController : MonoBehaviour
         {
             if (o.TotalConsumptionOfMe > o.Population)
             {
-                Cull(o, Mathf.FloorToInt(o.TotalConsumptionOfMe - o.Population));
+                int unitsToKill = Mathf.FloorToInt(o.TotalConsumptionOfMe - o.Population);
+                Cull(o, unitsToKill);
+                if (o.name != "Water")
+                {
+                    if (o.Population > 0)
+                    {
+                        if (o.Population < o.TotalConsumptionOfMe)
+                        {
+                            
+                            GameCore.instance.UpdatesText.text = o.Population.ToString("<color=red>0</color> " + o.name + "s were eaten\n");
+                        }
+                        else
+                        {
+                            GameCore.instance.UpdatesText.text = unitsToKill.ToString("<color=red>0</color> " + o.name + "s were eaten\n");
+                        }
+                    }
+                    
+                }
+                
             }
         }
 
@@ -102,11 +117,11 @@ public class EcosystemController : MonoBehaviour
             {
                 if (o.name != "Vegetation")
                 {
-                    GameCore.instance.UpdatesText.text = unitsToKill.ToString("<color=red>0</color> " + o.name + "s starved to death");
+                    GameCore.instance.UpdatesText.text += unitsToKill.ToString("<color=red>0</color> " + o.name + "s starved to death\n");
                 }
                 else
                 {
-                    GameCore.instance.UpdatesText.text = unitsToKill.ToString("<color=red>0</color> " + o.name + " withered and died without water");
+                    GameCore.instance.UpdatesText.text += unitsToKill.ToString("<color=red>0</color> " + o.name + " withered and died without water\n");
                 }
                 Cull(o, unitsToKill);
             }
