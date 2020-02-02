@@ -11,8 +11,23 @@ public class BodyCounter : MonoBehaviour
         
     }
 
-    public void RecordDeath(string creature, string deathType, int number)
+    public void RecordDeath(string creature, string deathType, int amount)
     {
         if (Memorial.ContainsKey(creature))
+        {
+            if (Memorial[creature].ContainsKey(deathType))
+            {
+                Memorial[creature][deathType] += amount;
+            }
+            else
+            {
+                Memorial[creature] = new Dictionary<string, int>();
+                Memorial[creature].Add(deathType, amount);
+            }
+        }
+        else
+        {
+            
+        }
     }
 }
