@@ -50,6 +50,10 @@ public class GameCore : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        SpawnableLookup = new Dictionary<string, SpawnableObject>();
+        SpawnableList = new List<SpawnableObject>();
+        CreationLookup = new Dictionary<string, List<Creation>>();
+
         instance = this;
         ecosystem = FindObjectOfType<EcosystemController>();
         uiController = FindObjectOfType<UIController>();

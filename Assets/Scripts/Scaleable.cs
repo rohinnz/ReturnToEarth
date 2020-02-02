@@ -7,7 +7,7 @@ public class Scaleable : MonoBehaviour
     public float targetScale = 0.9f;
     public float fromScale = 0.9f;
     public float scalingProgress = 0f;
-    public float increment = 1f;
+    public float increment = 0.05f;
     Vector3 fromVector;
     Vector3 targetVector;
 
@@ -19,8 +19,7 @@ public class Scaleable : MonoBehaviour
 
     public void IncreaseScale(float i)
     {
-        //SetTargetScale(fromScale + i);
-        SetTargetScale(fromScale + increment);
+        transform.localScale += new Vector3(increment,increment,increment);
     }
 
     public void SetTargetScale(float target)
@@ -34,7 +33,7 @@ public class Scaleable : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {/*
         if (targetScale != fromScale)
         {
             scalingProgress = Mathf.Clamp(scalingProgress + Time.deltaTime, 0f, 1f);
@@ -44,6 +43,6 @@ public class Scaleable : MonoBehaviour
                 fromScale = targetScale;
             }
         }
-        
+        */
     }
 }

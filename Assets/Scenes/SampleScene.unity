@@ -570,6 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155a9bcbe947f074ea9674e721739fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnergyUsePerTick: 2
   TickText: {fileID: 676794381}
   UpdatesText: {fileID: 34274541}
   GameSpeed: 1
@@ -3477,6 +3478,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 3.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598314822696750057, guid: 33f5c8bdbf60c704a81bb85fb3306c19,
+        type: 3}
+      propertyPath: increment
+      value: 0.0006
       objectReference: {fileID: 0}
     - target: {fileID: 5598314823832747344, guid: 33f5c8bdbf60c704a81bb85fb3306c19,
         type: 3}
