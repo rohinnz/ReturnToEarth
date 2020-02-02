@@ -109,6 +109,28 @@ public class GameCore : MonoBehaviour
         ecosystem.PopulationTick();
     }
 
+    void VictoryCheck()
+    {
+        SpawnableObject human = SpawnableLookup["Humanoid"];
+        bool victory = true;
+        if (human.Population >= 50)
+        {
+            foreach(Consumption c in human.Consumption)
+            {
+                if (c.SpawnableObject.TotalConsumptionOfMe > c.SpawnableObject.Population)
+                {
+                    victory = false;
+                }
+            }
+        }
+
+        if (victory)
+        {
+            GameCore.EndScreenText = WinText[0];
+            SceneManager.LoadScene("WinScene");
+        }
+    }
+
     List<SpawnableObject> GetSpawnables()
     {
         List<SpawnableObject> spawnables = new List<SpawnableObject>();
