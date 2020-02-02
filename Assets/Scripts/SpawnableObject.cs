@@ -12,6 +12,7 @@ public struct Consumption
 
 public class SpawnableObject : MonoBehaviour
 {
+    public Sprite Sprite;
     public float SpawnAmount = 1f;
     public bool isWater = false;
     public List<Consumption> Consumption = new List<Consumption>();

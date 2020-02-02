@@ -395,7 +395,6 @@ GameObject:
   - component: {fileID: 5242934291472822019}
   - component: {fileID: 5242934291472822018}
   - component: {fileID: 5242934291472822020}
-  - component: {fileID: -3152192588506945612}
   m_Layer: 5
   m_Name: PopulationDetail
   m_TagString: Untagged
@@ -477,18 +476,6 @@ MonoBehaviour:
   PopulationBar: {fileID: 5242934291579607826}
   spawnableObject: {fileID: 0}
   ConsumptionText: {fileID: 524452552}
---- !u!114 &-3152192588506945612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5242934291472822016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b7d824ca2f3e84b8cd6117b7517e62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5242934291579607918
 GameObject:
   m_ObjectHideFlags: 0
