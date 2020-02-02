@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: b9b4328f0dac51d488ac3b2b25d4e9c7
   - enabled: 1
+    path: Assets/Scenes/WaterAndVegetationIntroScreen.unity
+    guid: 4c0e84197a60f5c4eac02f3c71b4a8c3
+  - enabled: 1
+    path: Assets/Scenes/CharacterIntroScreen.unity
+    guid: 03965c4c59335744386e7fd1fa2c4a6d
+  - enabled: 1
+    path: Assets/Scenes/ControlsHelpScreen.unity
+    guid: c83095bce2d8ab240b67f1217706eeb3
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
