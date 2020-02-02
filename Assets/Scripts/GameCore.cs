@@ -113,9 +113,10 @@ public class GameCore : MonoBehaviour
     void VictoryCheck()
     {
         SpawnableObject human = SpawnableLookup["Humanoid"];
-        bool victory = true;
+        bool victory = false;
         if (human.Population >= 50)
         {
+            victory = true;
             foreach(Consumption c in human.Consumption)
             {
                 if (c.SpawnableObject.TotalConsumptionOfMe > c.SpawnableObject.Population)
