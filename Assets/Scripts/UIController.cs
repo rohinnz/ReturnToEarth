@@ -22,6 +22,11 @@ public class UIController : MonoBehaviour
             GameObject newGO = Instantiate(SpawnButtonPrefab, ButtonPanel);
             newGO.GetComponent<UISpawnButton>().ObjectToSpawn = o;
             newGO.GetComponent<Button>().onClick.AddListener(() => { spawnerRay.SelectSpawnable(o); });
+            if (o.name == "Water")
+            {
+                newGO.GetComponent<UISpawnButton>().ThisButtonSelected();
+                UISpawnButton.SelectedButton = newGO.GetComponent<UISpawnButton>();
+            }
         }
     }
 

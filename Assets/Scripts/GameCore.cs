@@ -36,9 +36,7 @@ public class GameCore : MonoBehaviour
     public string[] WinText;
     public string[] LoseText;
 
-    
-
-    public static string EndScreenText = "Test";
+    public static string EndScreenText = "";
 
     public void LoseGame(string text)
     {
@@ -63,6 +61,8 @@ public class GameCore : MonoBehaviour
 
     void GameTick()
     {
+        UseEnergy(1);
+
         TickCount++;
         TickText.text = TickCount.ToString("Game Ticks: 0");
         int drownCount = 0;
