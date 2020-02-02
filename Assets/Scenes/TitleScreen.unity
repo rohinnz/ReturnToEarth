@@ -508,8 +508,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -6, y: 6}
-  m_SizeDelta: {x: 86, y: 30}
+  m_AnchoredPosition: {x: -10, y: 10}
+  m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &993446573
 MonoBehaviour:
@@ -562,7 +562,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SampleScene
+          m_StringArgument: WaterAndVegetationIntroScreen
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &993446574
@@ -755,6 +755,7 @@ MonoBehaviour:
     with equipment the tools to bring life back to Earth, but you must maintain a
     balance between the species so they can flourish into the future.
 
+
     [Support
     50 humans on Earth]'
   m_isRightToLeft: 0
@@ -825,12 +826,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 2.5440063, z: 0, w: 15.285309}
   m_textInfo:
     textComponent: {fileID: 1852447849}
-    characterCount: 399
+    characterCount: 400
     spriteCount: 0
-    spaceCount: 70
+    spaceCount: 71
     wordCount: 71
     linkCount: 0
-    lineCount: 8
+    lineCount: 9
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
