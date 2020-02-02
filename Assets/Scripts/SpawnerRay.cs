@@ -17,6 +17,8 @@ public class SpawnerRay : MonoBehaviour
     float cameraStartDistance;
     float zoomSpeed = 1f;
 
+    AudioSource audioData;
+
     public void SelectSpawnable(SpawnableObject spawnable)
     {
         selectedSpawn = spawnable;
@@ -36,7 +38,7 @@ public class SpawnerRay : MonoBehaviour
                 GameObject newGo = Instantiate(selectedSpawn.Prefabs[Random.Range(0,selectedSpawn.Prefabs.Length)], spawnPoint, startRotation, hit.transform);
                 Creation newCreation = newGo.AddComponent<Creation>();
                 newCreation.spawnableObject = selectedSpawn;
-            
+
                 Debug.Log(GameCore.CreationLookup.Count);
                 ecosystem.Populate(newCreation);
             }
@@ -57,6 +59,7 @@ public class SpawnerRay : MonoBehaviour
         gameCore = FindObjectOfType<GameCore>();
         uiController = FindObjectOfType<UIController>();
         SelectSpawnable(GameCore.SpawnableLookup["Water"]);
+        audioData = GetComponent<AudioSource>();
     }
 
     
@@ -90,6 +93,8 @@ public class SpawnerRay : MonoBehaviour
 
             if (Input.GetMouseButton(0) && planetHitIndex != -1 && canSpawn)
             {
+                audioData.Stop();
+                audioData.Play(0);
                 UseSelectedSpawnable(hits[planetHitIndex]);
             }
         }
