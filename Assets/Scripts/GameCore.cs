@@ -165,6 +165,10 @@ public class GameCore : MonoBehaviour
     public void UseEnergy(float amount)
     {
         Energy -= amount;
+        if (Energy <= 0)
+        {
+            SceneManager.LoadScene("WinScreen");
+        }
         UpdateEnergy();
     }
 }

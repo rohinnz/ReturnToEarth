@@ -13,12 +13,15 @@ public class UISpawnButton : MonoBehaviour
     public Image spawnableSprite;
     public static UISpawnButton SelectedButton;
     public Color HighlightColour;
-
+    private void Awake()
+    {
+        originalColour = buttonImage.color;
+    }
     private void Start()
     {
         buttonText.text = ObjectToSpawn.name;
         spawnableSprite.sprite = ObjectToSpawn.Sprite;
-        originalColour = buttonImage.color;
+        
     }
 
     public void DeselectButton()
