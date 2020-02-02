@@ -2268,7 +2268,7 @@ MonoBehaviour:
 
     Consumes: 1 Herbivore'
   TooltipLines: 0
-  MaxPopulation: 100
+  MaxPopulation: 500
   TotalConsumptionOfMe: 0
 --- !u!1 &1336829717
 GameObject:
@@ -2330,7 +2330,7 @@ MonoBehaviour:
 
     Consumes: 1 Water, 1 Vegetation'
   TooltipLines: 0
-  MaxPopulation: 100
+  MaxPopulation: 500
   TotalConsumptionOfMe: 0
 --- !u!1 &1437907687
 GameObject:
@@ -2550,7 +2550,7 @@ MonoBehaviour:
   BarColour: {r: 0.8301887, g: 0.011747932, b: 0.6938784, a: 1}
   Tooltip: 
   TooltipLines: 0
-  MaxPopulation: 100
+  MaxPopulation: 500
   TotalConsumptionOfMe: 0
 --- !u!1 &1535073040
 GameObject:
@@ -2660,7 +2660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: c144fce50b9a6a44aa5137ac7125dac8, type: 3}
-  SpawnAmount: 10
+  SpawnAmount: 2
   isWater: 1
   Consumption: []
   Prefabs: []
