@@ -129,7 +129,7 @@ public class GameCore : MonoBehaviour
         if (victory)
         {
             GameCore.EndScreenText = WinText[0];
-            SceneManager.LoadScene("WinScene");
+            SceneManager.LoadScene("WinScreen");
         }
     }
 
