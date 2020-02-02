@@ -1130,7 +1130,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1250,7 +1250,7 @@ MonoBehaviour:
 
 
     Consumes:
-    1 Herbivore'
+    1 Water, 1 Herbivore'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1319,10 +1319,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: -37.092285}
   m_textInfo:
     textComponent: {fileID: 1608836291}
-    characterCount: 154
+    characterCount: 163
     spriteCount: 0
-    spaceCount: 25
-    wordCount: 24
+    spaceCount: 27
+    wordCount: 26
     linkCount: 0
     lineCount: 7
     pageCount: 1
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_text: "Person (Humanoid)\r\n\nThe descendents of Earth humans evolved to be completely
     hairless with bulging eyes.\r\nHowever, they have retained their forebears' voracious
     apetites and could upset a carefully balanced ecosystem. \r\n\nConsumes: 4 Water,
-    4 Vegetation, 1 Herbivore, 2 Carnivore"
+    4 Vegetation, 2 Herbivore, 2 Carnivore"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

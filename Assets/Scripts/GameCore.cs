@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GameCore : MonoBehaviour
 {
+    public float EnergyUsePerTick = 2f;
+
     public static GameCore instance;
     public TMP_Text TickText;
     public TMP_Text UpdatesText;
@@ -61,7 +63,7 @@ public class GameCore : MonoBehaviour
 
     void GameTick()
     {
-        UseEnergy(1);
+        UseEnergy(EnergyUsePerTick);
 
         TickCount++;
         TickText.text = TickCount.ToString("Game Ticks: 0");
