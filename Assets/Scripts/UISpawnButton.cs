@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UISpawnButton : MonoBehaviour
 {
-    Color originalColour;
+    public Color originalColour;
     public SpawnableObject ObjectToSpawn;
     public Image buttonImage;
     public TMP_Text buttonText;

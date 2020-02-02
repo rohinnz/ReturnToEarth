@@ -24,6 +24,7 @@ public class UIController : MonoBehaviour
             newGO.GetComponent<Button>().onClick.AddListener(() => { spawnerRay.SelectSpawnable(o); });
             if (o.name == "Water")
             {
+                newGO.GetComponent<UISpawnButton>().originalColour = newGO.GetComponent<Image>().color;
                 newGO.GetComponent<UISpawnButton>().ThisButtonSelected();
                 UISpawnButton.SelectedButton = newGO.GetComponent<UISpawnButton>();
             }
