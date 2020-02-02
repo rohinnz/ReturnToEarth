@@ -36,6 +36,8 @@ public class GameCore : MonoBehaviour
     public string[] WinText;
     public string[] LoseText;
 
+    
+
     public static string EndScreenText = "Test";
 
     public void LoseGame(string text)
@@ -97,6 +99,7 @@ public class GameCore : MonoBehaviour
         }
         if (WaterTransform.localScale.x >= 1.4f)
         {
+            LoseGame(LoseText[0]);
             // Player has drowned the planet and lost
             Debug.Log("Planet DROWNED!");
         }
