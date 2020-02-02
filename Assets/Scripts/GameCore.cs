@@ -107,6 +107,7 @@ public class GameCore : MonoBehaviour
             Debug.Log("Planet DROWNED!");
         }
         ecosystem.PopulationTick();
+        VictoryCheck();
     }
 
     void VictoryCheck()
