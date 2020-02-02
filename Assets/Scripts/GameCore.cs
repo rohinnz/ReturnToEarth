@@ -84,6 +84,7 @@ public class GameCore : MonoBehaviour
                 }
                 else
                 {
+                    BodyCounter.RecordDeath(c.name, "drowned", 1);
                     drownCount += 1;
                 }
                 
@@ -91,10 +92,12 @@ public class GameCore : MonoBehaviour
         }
         if (drownCount > 0)
         {
+            
             UpdatesText.text += drownCount.ToString("<color=red>0</color> creatures drowned\n");
         }
         if (vegetationWashedOut > 0)
         {
+            BodyCounter.RecordDeath("Vegetation", "washed away", vegetationWashedOut);
             UpdatesText.text += vegetationWashedOut.ToString("<color=red>0</color> vegetation washed away\n");
         }
         if (WaterTransform.localScale.x >= 1.4f)

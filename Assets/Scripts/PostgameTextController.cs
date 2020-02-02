@@ -14,7 +14,7 @@ public class PostgameTextController : MonoBehaviour
         {
             foreach(KeyValuePair<string,int> outcome in kv.Value)
             {
-                MemorialText.text += outcome.Value + " " + kv.Key + " " + outcome.Key;
+                MemorialText.text += outcome.Value + " " + kv.Key + " " + outcome.Key+"\n";
             }
         }
     }
