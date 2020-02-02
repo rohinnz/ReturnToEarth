@@ -16,6 +16,7 @@ public class SpawnerRay : MonoBehaviour
     bool canSpawn = true;
     float cameraStartDistance;
     float zoomSpeed = 1f;
+    float scrollWheelZoomSpeed = 50f;
 
     public void SelectSpawnable(SpawnableObject spawnable)
     {
@@ -100,16 +101,34 @@ public class SpawnerRay : MonoBehaviour
             {
                 Camera.main.transform.position += Camera.main.transform.forward * zoomSpeed * Time.deltaTime;
             }
-            
-        }
 
-        if (Input.GetKey(KeyCode.Minus) || Input.GetKey(KeyCode.KeypadMinus))
+        }
+        else if (Input.GetKey(KeyCode.Minus) || Input.GetKey(KeyCode.KeypadMinus))
         {
             if (Vector3.Distance(Camera.main.transform.position, planetTransform.position) < 5f)
             {
                 Camera.main.transform.position -= Camera.main.transform.forward * zoomSpeed * Time.deltaTime;
             }
 
+        }
+        else
+        {
+            var scrollWheelAxis = Input.GetAxis("Mouse ScrollWheel");
+            if (scrollWheelAxis > 0)
+            {
+                if (Vector3.Distance(Camera.main.transform.position, planetTransform.position) > 2f)
+                {
+                    Camera.main.transform.position += Camera.main.transform.forward * scrollWheelZoomSpeed * Time.deltaTime;
+                }
+
+            }
+            else if (scrollWheelAxis < 0)
+            {
+                if (Vector3.Distance(Camera.main.transform.position, planetTransform.position) < 5f)
+                {
+                    Camera.main.transform.position -= Camera.main.transform.forward * scrollWheelZoomSpeed * Time.deltaTime;
+                }
+            }
         }
 
         if (Input.GetMouseButtonDown(1))
